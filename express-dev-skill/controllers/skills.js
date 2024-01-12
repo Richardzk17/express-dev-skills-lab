@@ -1,11 +1,20 @@
-import { skills } from '../data/skills-data.js'
+// Import the model that we exported in the Todo.js model file
+import { Skill } from '../models/skill.js'
+
 
 function index(req, res) {
+  Skill.find({})
+  .then(skills => { 
     res.render('skills/index', {
-      skills : skills
+      skills: skills,
     })
-  }
-  
-  export {
-      index,
-  }
+  })
+  .catch(error => { 
+    console.log(error)
+    res.redirect('/')
+  })
+}
+
+export {
+    index,
+}
