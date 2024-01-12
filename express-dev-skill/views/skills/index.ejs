@@ -8,14 +8,14 @@
 <body>
     <h1>Skill</h1>
     <ul>
-      <% skills.forEach(skill => { %>
-        <li>
-                  <%= skill.text %> 
-                  - 
-                  <%= skill.one ? 'done' : 'not done' %>
-              </li>
-      <% }) %>
-    </ul>
+        <% skills.forEach(function(skill) { %>
+          <li>
+            <a href="/skills/<%= skill._id %>"><%= skill.text %></a>
+              - 
+            <%= skill.done ? 'done' : 'not done' %>
+          </li>
+        <% }) %>
+      </ul>
     <a href="/skills/new">Add To-Do</a>
 </body>
 </html>
